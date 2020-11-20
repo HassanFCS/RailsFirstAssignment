@@ -5,3 +5,8 @@
 
 <h3>Article Description</h3>
 <p><strong><%=@article.description%></strong></p>
+
+<%= link_to 'Edit', edit_article_path(@article)%>|
+<%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>|
+<%= link_to 'Return to Articles page', articles_path%>
+
