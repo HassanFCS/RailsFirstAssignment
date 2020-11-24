@@ -34,7 +34,28 @@ body{
 }
 
 #sticky-footer{
-  position: absolute;
+  position: relative;
   width: 100%;
   bottom: 0;
+}
+
+.close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  color: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
 }

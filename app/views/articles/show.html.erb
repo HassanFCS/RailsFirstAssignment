@@ -1,12 +1,31 @@
 <h1 class="text-center">Here is the Show pagre of Articles</h1>
 
-<h3>Article Title</h3>
-<p><strong><%=@article.title%></strong></p>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center mt-5 shadow bg-white rounded">
+        <div class="card-header font-italic">
+          by Ibn e Hassan
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-success"><%=@article.title%></h5>
+          <div class="card-text text-left"><%= simple_format(@article.description) %></div>
+          
+          <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-primary"%>
+          <%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger"%>
+        </div>
+        <div class="card-footer text-muted">
+          <small>
+          Created <%=time_ago_in_words(@article.created_at)%> ago,
+          edited <%=time_ago_in_words(@article.updated_at)%> ago  
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h3>Article Description</h3>
-<p><strong><%=@article.description%></strong></p>
 
-<%= link_to 'Edit', edit_article_path(@article)%>|
-<%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>|
-<%= link_to 'Return to Articles page', articles_path%>
-
+<div class="text-center mt-5 mb-3">
+  <%= link_to 'Return to Articles page', articles_path, class: "btn btn-outline-success text-dark"%>
+</div>
